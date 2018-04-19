@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+</head>
+
+<body>
+<div>
+  <ul id='list'></ul>
+</div>
+
+<script>
+
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true);
+    xmlHttp.send(null);
+}
+
+function ajaxCAllback(res){
+  var x = JSON.parse(res);
+  console.log(x);
+  //For each item in the array, 
+  x.configurations.forEach(function(currentVal, index, arr){
+    var ul = document.getElementById("list");
+    var li = document.createElement("li");
+      for (const key of Object.keys(currentVal)) {
+          var para = document.createElement("p");
+          var node = document.createTextNode(key + " : " + currentVal[key]);
+          para.appendChild(node);  
+          li.appendChild(para);
+      }
+    ul.appendChild(li);
+  })
+}
+
+httpGetAsync('http://localhost:3000/download/request?host=2', ajaxCAllback);
+
+</script>
+</body>
+
+</html> <base></base>
