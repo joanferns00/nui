@@ -1,0 +1,23 @@
+{
+  "name": "nui",
+  "version": "1.0.0",
+  "description": "Test code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanferns00/nui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanferns00/nui/issues"
+  },
+  "homepage": "https://github.com/joanferns00/nui#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http": "0.0.0"
+  }
+}
