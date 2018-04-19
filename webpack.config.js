@@ -54,6 +54,16 @@ module.exports = {
           'file-loader',
         ],
       },
+{
+            test: /\.scss$/,
+            use: [{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader"
+            }]
+        }      
     ],
   },
   // Enable importing JS files without specifying their's extenstion

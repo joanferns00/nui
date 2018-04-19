@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 
 import '../css/style.css';
+import '../css/style.scss';
 import keenImage from '../assets/img1.jpg'
 
-export default class Hello extends Component{
-
+export default class ServerList extends Component{
 
   constructor(props) {
     super(props);
@@ -15,15 +15,11 @@ export default class Hello extends Component{
     };
   }  
 
-
   componentDidMount() {
     fetch("http://localhost:3000/download/request?host=2")
       .then(response => response.json())
       .then(data => 
-        {this.setState({ configurations: data.configurations })
-          console.log(data);}
-
-        );
+        this.setState({ configurations: data.configurations }));
   }
 
   renderPara(items){
@@ -42,13 +38,13 @@ export default class Hello extends Component{
 
   render(){
     return (
-      <div><p>Hello from React!</p>
-      <img src={keenImage} alt="Commander Keen"/>
-      {this.renderList()}
+      <div>
+     
+          {this.renderList()}
       </div>
 
       )
   }
 }
 
-render(<Hello/>, document.getElementById('app'));
+render(<ServerList/>, document.getElementById('app'));
