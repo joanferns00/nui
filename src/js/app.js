@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
+import Content from './Content';
+import Header from './Header';
+import Footer from './Footer';
+
 import '../css/style.css';
 import '../css/style.scss';
-import keenImage from '../assets/img1.jpg'
 
 export default class ServerList extends Component{
 
@@ -25,7 +28,7 @@ export default class ServerList extends Component{
   renderPara(items){
     let paraItems = [];
     for (const key of Object.keys(items)) {
-      paraItems.push(<p>{key + " : " + items[key]}</p>)
+      paraItems.push(<Content key={key} keyValue={key} value={items[key]} />)
     }   
     return paraItems;
   }
@@ -39,8 +42,9 @@ export default class ServerList extends Component{
   render(){
     return (
       <div>
-     
+      <Header/>
           {this.renderList()}
+      <Footer size={this.state.configurations.length}/>
       </div>
 
       )

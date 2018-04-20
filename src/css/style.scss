@@ -3,4 +3,34 @@
  
 body{
   font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
 }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+ul li{
+    list-style: none;
+    display: inline-block;
+    width: 30%;
+    border-top: 4px solid red;
+    margin: 20px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s;
+}
+
+ul li:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+};
+
+.content{
+  text-transform: capitalize;
+}
+
+.content-center{text-align: center;}
