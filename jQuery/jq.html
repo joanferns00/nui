@@ -9,28 +9,37 @@
 <style>
 body{
   font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
 }
 
 ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 ul li{
     list-style: none;
     display: inline-block;
     width: 30%;
-    /*width: calc(100% / 3);*/
-    /*height: 120px;*/
-    text-align: center;
-
-    border-top: 4px solid red;
+    border-top: 4px solid green;
     margin: 20px;
     padding: 10px;
     background-color: #eee;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px #000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s;
 }
+
+ul li:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+};
+
+.content{
+  text-transform: capitalize;
+}
+
+.content-center{text-align: center;}
 
 </style>
 
@@ -51,7 +60,13 @@ $(document).ready(function(){
               var cList = $('#list');
               var x = $('<li/>');            
               for (const key of Object.keys(currentVal)) {
-                x.append($('<p>').text(key + " : " + currentVal[key]));
+                if(key === 'name'){
+                  x.append($('<h1>').text(key + " : " + currentVal[key]));
+                }
+                else{
+                  x.append($('<p>').text(key + " : " + currentVal[key]));  
+                }
+                
               }
               x.appendTo(cList);
           });
