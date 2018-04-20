@@ -7,6 +7,7 @@
 
 <body>
 <div>
+  <h1>JavaScript only</h1>
   <ul id='list'></ul>
 </div>
 
@@ -25,7 +26,6 @@ function httpGetAsync(theUrl, callback)
 
 function ajaxCAllback(res){
   var x = JSON.parse(res);
-  console.log(x);
   //For each item in the array, 
   x.configurations.forEach(function(currentVal, index, arr){
     var ul = document.getElementById("list");

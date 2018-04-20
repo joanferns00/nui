@@ -1,12 +1,8 @@
 var express = require('express');
 var app = express();
 var path    = require("path");
+var DIST_DIR = path.join(__dirname, "dist");
 
-// Routes
-/*app.get('/', function(req, res) {
-  //res.send('Hello World!');
-  res.sendFile(path.join(__dirname+'/html/jsonly.html'));
-});*/
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -14,13 +10,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Routes
 app.get('/', function(req, res) {
   //res.send('Hello World!');
+  res.sendFile(path.join(__dirname+'/html/jsonly.html'));
+});
+
+app.get('/jquery', function(req, res) {
   res.sendFile(path.join(__dirname+'/jQuery/jq.html'));
 });
 
 app.get('/download/request', function(req, res) {
-  //res.send('Hello World test!' + req.query.host );
   var x = [
   {'name': 'host1',
    'hostname' : 'nessus-ntp.lab.com',
